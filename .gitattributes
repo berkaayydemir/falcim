@@ -1,0 +1,15 @@
+# Depoda tutarlı satır sonu (LF); checkout'ta platforma bırakılır
+* text=auto eol=lf
+
+# Windows'a özel scriptler CRLF kalsın
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# İkili dosyalar
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.gif  binary
+*.jar  binary
+*.keystore binary

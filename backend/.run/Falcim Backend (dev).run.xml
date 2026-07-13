@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Falcim Backend (dev)" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.falcim.FalcimApplication" />
+    <module name="falcim-backend" />
+    <option name="VM_PARAMETERS" value="-Dspring.profiles.active=dev,local" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.falcim.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

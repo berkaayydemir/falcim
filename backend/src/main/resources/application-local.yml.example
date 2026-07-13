@@ -1,0 +1,22 @@
+# ─── YEREL GELİŞTİRME PROFİLİ (application-local.yml) ───
+# Bu dosyayı `application-local.yml` olarak KOPYALAYIN ve gerçek değerlerle doldurun.
+# `application-local.yml` .gitignore'dadır — gizli anahtarlar ASLA commit edilmez.
+#
+# Run config'de aktif profiller "dev,local" olduğunda Spring bu dosyayı otomatik yükler
+# ve application.yml'deki varsayılanları override eder.
+
+falcim:
+  claude:
+    # Anthropic konsolundan aldığınız gerçek API anahtarı:
+    api-key: sk-ant-BURAYA_GERCEK_ANAHTAR
+    model: claude-sonnet-4-6
+  jwt:
+    # En az 32 karakter (256-bit). Üretmek için:  openssl rand -base64 48
+    secret: yerel-gelistirme-icin-en-az-32-karakterlik-guclu-bir-gizli-anahtar
+
+# Docker-compose varsayılanlarıyla eşleşir; farklı bir DB kullanıyorsanız güncelleyin.
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/falcim
+    username: falcim
+    password: falcim_local_dev

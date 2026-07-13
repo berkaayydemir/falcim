@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "Falcım",
+    "slug": "falcim",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "scheme": "falcim",
+    "backgroundColor": "#0D0A08",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0D0A08"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.falcim.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Fincan fotoğrafını çekmek için kamera erişimi gereklidir.",
+        "NSPhotoLibraryUsageDescription": "Galeriden fincan fotoğrafı seçmek için erişim gereklidir."
+      }
+    },
+    "android": {
+      "package": "com.falcim.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0D0A08"
+      },
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Falcım galeriden fincan fotoğrafı seçmenize izin ister.",
+          "cameraPermission": "Falcım fincanınızın fotoğrafını çekmenize izin ister."
+        }
+      ],
+      "expo-secure-store"
+    ],
+    "extra": {}
+  }
+}

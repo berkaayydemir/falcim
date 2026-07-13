@@ -1,0 +1,50 @@
+# ============================================================
+#  Falcım — monorepo (backend + frontend) kök .gitignore
+#  Desenler alt klasörlerde de geçerlidir (backend/target, frontend/node_modules ...)
+# ============================================================
+
+# ---- Bağımlılıklar ----
+node_modules/
+
+# ---- Java / Maven (backend) ----
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*.class
+
+# ---- Gizli değerler & yerel ortam (ASLA commit edilmez) ----
+.env
+.env.local
+.env.*.local
+application-local.yml
+
+# Şablonlar takip EDİLİR (aşağıdakiler yukarıdaki .env kuralından muaf tutulur)
+!.env.example
+!application-local.yml.example
+
+# ---- Expo / React Native (frontend) ----
+.expo/
+dist/
+web-build/
+.metro-health-check*
+expo-env.d.ts
+
+# ---- IDE / Editör ----
+.idea/
+*.iml
+.vscode/
+*.code-workspace
+
+# ---- Claude Code yerel durumu ----
+.claude/
+
+# ---- İşletim sistemi ----
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ---- Loglar ----
+*.log
+npm-debug.*
+yarn-debug.*
+yarn-error.*

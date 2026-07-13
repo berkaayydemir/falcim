@@ -1,0 +1,18 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.env
+*.log
+
+# Yerel gizli profil (Claude anahtarı, JWT secret) — asla commit edilmez
+src/main/resources/application-local.yml
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# OS
+.DS_Store

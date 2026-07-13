@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: falcim-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-falcim}
+      POSTGRES_USER: ${DB_USER:-falcim}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-falcim_local_dev}
+    ports:
+      - "5432:5432"
+    volumes:
+      - falcim_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-falcim} -d ${DB_NAME:-falcim}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  falcim_pgdata:
