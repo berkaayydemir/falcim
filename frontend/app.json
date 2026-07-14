@@ -17,6 +17,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.falcim.app",
+      "usesAppleSignIn": true,
       "infoPlist": {
         "NSCameraUsageDescription": "Fincan fotoğrafını çekmek için kamera erişimi gereklidir.",
         "NSPhotoLibraryUsageDescription": "Galeriden fincan fotoğrafı seçmek için erişim gereklidir."
@@ -41,7 +42,8 @@
           "cameraPermission": "Falcım fincanınızın fotoğrafını çekmenize izin ister."
         }
       ],
-      "expo-secure-store"
+      "expo-secure-store",
+      "expo-apple-authentication"
     ],
     "extra": {}
   }

@@ -30,6 +30,16 @@ export function login(email: string, password: string): Promise<AuthResponse> {
   return postAuth('/auth/login', { email, password });
 }
 
+/** Google id_token'ı backend'e gönderir; hesabı bulur/oluşturur ve token'ları saklar. */
+export function loginWithGoogle(idToken: string, displayName?: string): Promise<AuthResponse> {
+  return postAuth('/auth/google', { idToken, displayName });
+}
+
+/** Apple identityToken'ı backend'e gönderir; hesabı bulur/oluşturur ve token'ları saklar. */
+export function loginWithApple(idToken: string, displayName?: string): Promise<AuthResponse> {
+  return postAuth('/auth/apple', { idToken, displayName });
+}
+
 /**
  * Sunucudaki refresh token'ı iptal eder ve yerel token'ları temizler.
  */

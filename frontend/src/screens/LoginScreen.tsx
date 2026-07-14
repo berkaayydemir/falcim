@@ -16,6 +16,7 @@ import { Colors, FontFamily, Radius, Spacing, Ornament } from '../theme';
 import { AuthStackParamList } from '../types';
 import GoldButton from '../components/GoldButton';
 import SectionLabel from '../components/SectionLabel';
+import SocialAuthButtons from '../components/SocialAuthButtons';
 import { useAuth } from '../context/AuthContext';
 import { ApiError } from '../services/apiClient';
 
@@ -99,6 +100,8 @@ export default function LoginScreen() {
               disabled={loading}
               style={styles.cta}
             />
+
+            <SocialAuthButtons />
 
             <Pressable onPress={() => navigation.navigate('Register')} hitSlop={8}>
               <Text style={styles.switchText}>

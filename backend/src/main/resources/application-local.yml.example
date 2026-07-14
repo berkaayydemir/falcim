@@ -13,6 +13,17 @@ falcim:
   jwt:
     # En az 32 karakter (256-bit). Üretmek için:  openssl rand -base64 48
     secret: yerel-gelistirme-icin-en-az-32-karakterlik-guclu-bir-gizli-anahtar
+  oauth:
+    # Sosyal giriş — boş bırakılırsa Google/Apple ile giriş devre dışı kalır.
+    google:
+      # Google Cloud Console'daki Web + Android + iOS client id'leri (virgülle)
+      client-ids:
+        - BURAYA_GOOGLE_WEB_CLIENT_ID.apps.googleusercontent.com
+        # - BURAYA_GOOGLE_IOS_CLIENT_ID.apps.googleusercontent.com
+    apple:
+      # Native Sign in with Apple için uygulamanın bundle id'si
+      client-ids:
+        - com.falcim.app
 
 # Docker-compose varsayılanlarıyla eşleşir; farklı bir DB kullanıyorsanız güncelleyin.
 spring:

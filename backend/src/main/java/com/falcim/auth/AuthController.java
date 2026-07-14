@@ -4,6 +4,7 @@ import com.falcim.auth.dto.AuthResponse;
 import com.falcim.auth.dto.LoginRequest;
 import com.falcim.auth.dto.RefreshRequest;
 import com.falcim.auth.dto.RegisterRequest;
+import com.falcim.auth.dto.SocialLoginRequest;
 import com.falcim.common.error.ApiException;
 import com.falcim.config.props.RateLimitProperties;
 import com.falcim.security.ratelimit.RateLimiterService;
@@ -44,6 +45,20 @@ public class AuthController {
                                               HttpServletRequest http) {
         enforceRateLimit(http);
         return ResponseEntity.ok(authService.login(req));
+    }
+
+    @PostMapping("/google")
+    public ResponseEntity<AuthResponse> google(@Valid @RequestBody SocialLoginRequest req,
+                                               HttpServletRequest http) {
+        enforceRateLimit(http);
+        return ResponseEntity.ok(authService.loginWithGoogle(req.idToken(), req.displayName()));
+    }
+
+    @PostMapping("/apple")
+    public ResponseEntity<AuthResponse> apple(@Valid @RequestBody SocialLoginRequest req,
+                                              HttpServletRequest http) {
+        enforceRateLimit(http);
+        return ResponseEntity.ok(authService.loginWithApple(req.idToken(), req.displayName()));
     }
 
     @PostMapping("/refresh")

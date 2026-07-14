@@ -17,6 +17,8 @@ interface AuthContextValue {
   user: AuthUser | null;
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string, displayName: string) => Promise<void>;
+  loginWithGoogle: (idToken: string, displayName?: string) => Promise<void>;
+  loginWithApple: (idToken: string, displayName?: string) => Promise<void>;
   logout: () => Promise<void>;
 }
 
@@ -72,6 +74,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     []
   );
 
+  const loginWithGoogle = useCallback(async (idToken: string, displayName?: string) => {
+    const res = await authService.loginWithGoogle(idToken, displayName);
+    setUser(res.user);
+    setStatus('authed');
+  }, []);
+
+  const loginWithApple = useCallback(async (idToken: string, displayName?: string) => {
+    const res = await authService.loginWithApple(idToken, displayName);
+    setUser(res.user);
+    setStatus('authed');
+  }, []);
+
   const logout = useCallback(async () => {
     await authService.logout();
     setUser(null);
@@ -79,8 +93,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const value = useMemo<AuthContextValue>(
-    () => ({ status, user, login, register, logout }),
-    [status, user, login, register, logout]
+    () => ({ status, user, login, register, loginWithGoogle, loginWithApple, logout }),
+    [status, user, login, register, loginWithGoogle, loginWithApple, logout]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

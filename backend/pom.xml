@@ -72,6 +72,13 @@
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
 
+        <!-- Sosyal giriş: Google/Apple id_token doğrulaması (JWKS/JWS) -->
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>9.40</version>
+        </dependency>
+
         <!-- JWT (jjwt) -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>

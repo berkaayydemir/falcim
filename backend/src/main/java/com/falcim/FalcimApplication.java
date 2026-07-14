@@ -4,6 +4,7 @@ import com.falcim.config.props.AppVersionProperties;
 import com.falcim.config.props.ClaudeProperties;
 import com.falcim.config.props.CorsProperties;
 import com.falcim.config.props.JwtProperties;
+import com.falcim.config.props.OAuthProperties;
 import com.falcim.config.props.QuotaProperties;
 import com.falcim.config.props.RateLimitProperties;
 import org.springframework.boot.SpringApplication;
@@ -17,7 +18,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
         CorsProperties.class,
         QuotaProperties.class,
         RateLimitProperties.class,
-        AppVersionProperties.class
+        AppVersionProperties.class,
+        OAuthProperties.class
 })
 public class FalcimApplication {
 
