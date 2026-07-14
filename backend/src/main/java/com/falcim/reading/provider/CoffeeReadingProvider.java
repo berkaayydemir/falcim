@@ -25,15 +25,18 @@ public class CoffeeReadingProvider implements ReadingProvider {
     private static final Logger log = LoggerFactory.getLogger(CoffeeReadingProvider.class);
 
     static final ReadingOutput FALLBACK = new ReadingOutput(
-            "Fincanında sıcak, aydınlık bir enerji görüyorum. Tortuların döküldüğü yerde parlayan "
-                    + "bir güneş beliriyor; bu, yakın zamanda içini ısıtacak yeni bir başlangıcın habercisi. "
-                    + "Son zamanlarda taşıdığın küçük tereddütler var, ama fincan bunların geçici olduğunu "
-                    + "fısıldıyor.\n\n"
-                    + "Kenarda kanat çırpan bir kuş figürü, uzaktan gelecek güzel bir haberi işaret ediyor; "
-                    + "belki beklediğin bir cevap, belki umulmadık bir davet. Önüne serilen yol ise açık ve "
-                    + "engelsiz — attığın her adım seni içten gelen bir huzura yaklaştırıyor.\n\n"
-                    + "Sabırlı ol ve kalbinin sesine güven. Fincanın, emeklerinin çok yakında karşılığını "
-                    + "bulacağını ve gülümseyeceğin günlerin kapıda olduğunu söylüyor.",
+            """
+                    Fincanında sıcak, aydınlık bir enerji görüyorum. Tortuların döküldüğü yerde parlayan \
+                    bir güneş beliriyor; bu, yakın zamanda içini ısıtacak yeni bir başlangıcın habercisi. \
+                    Son zamanlarda taşıdığın küçük tereddütler var, ama fincan bunların geçici olduğunu \
+                    fısıldıyor.
+                    
+                    Kenarda kanat çırpan bir kuş figürü, uzaktan gelecek güzel bir haberi işaret ediyor; \
+                    belki beklediğin bir cevap, belki umulmadık bir davet. Önüne serilen yol ise açık ve \
+                    engelsiz — attığın her adım seni içten gelen bir huzura yaklaştırıyor.
+                    
+                    Sabırlı ol ve kalbinin sesine güven. Fincanın, emeklerinin çok yakında karşılığını \
+                    bulacağını ve gülümseyeceğin günlerin kapıda olduğunu söylüyor.""",
             List.of(
                     new ReadingSymbol("☀️", "Güneş", "Yeni başlangıç"),
                     new ReadingSymbol("🕊️", "Kuş", "İyi haber"),
@@ -146,6 +149,6 @@ public class CoffeeReadingProvider implements ReadingProvider {
     }
 
     private int clampEnergy(int value) {
-        return Math.max(0, Math.min(100, value));
+        return Math.clamp(value, 0, 100);
     }
 }
