@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors, FontFamily, Radius, Spacing, Ornament } from '../theme';
 import SectionLabel from '../components/SectionLabel';
 import { useAuth } from '../context/AuthContext';
+import { APP_VERSION } from '../config/appVersion';
 
 export default function ProfileScreen() {
   const { user, logout } = useAuth();
@@ -59,6 +60,10 @@ export default function ProfileScreen() {
             {loggingOut ? 'Çıkış yapılıyor…' : 'Çıkış Yap'}
           </Text>
         </Pressable>
+
+        <Text style={styles.version}>
+          {Ornament} Falcım · Sürüm {APP_VERSION}
+        </Text>
       </View>
     </SafeAreaView>
   );
@@ -136,7 +141,7 @@ const styles = StyleSheet.create({
   },
   logoutBtn: {
     marginTop: 'auto',
-    marginBottom: Spacing.xl,
+    marginBottom: Spacing.lg,
     borderWidth: 1,
     borderColor: Colors.border,
     borderRadius: Radius.lg,
@@ -149,5 +154,12 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.sansSemi,
     fontSize: 15,
     color: '#E5867A',
+  },
+  version: {
+    fontFamily: FontFamily.sansMed,
+    fontSize: 12,
+    color: Colors.goldDim,
+    letterSpacing: 0.5,
+    marginBottom: Spacing.xl,
   },
 });
