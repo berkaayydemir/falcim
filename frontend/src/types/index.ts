@@ -100,3 +100,15 @@ export interface PageResponse<T> {
   totalItems: number;
   totalPages: number;
 }
+
+// Açılışta sürüm/force-update durumu (backend GET /app/config)
+export interface AppConfig {
+  platform: string;
+  currentVersion: string;
+  latestVersion: string;
+  minSupportedVersion: string;
+  updateRequired: boolean;
+  updateAvailable: boolean;
+  storeUrl: string;
+  message: string | null;
+}

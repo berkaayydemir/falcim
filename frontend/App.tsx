@@ -18,6 +18,7 @@ import {
 import { Colors } from './src/theme';
 import AppNavigator from './src/navigation/AppNavigator';
 import { AuthProvider } from './src/context/AuthContext';
+import { AppBootstrap } from './src/context/AppBootstrap';
 
 void SplashScreen.preventAutoHideAsync();
 
@@ -46,9 +47,11 @@ export default function App() {
     <SafeAreaProvider>
       <View style={styles.root} onLayout={onLayout}>
         <StatusBar style="light" />
-        <AuthProvider>
-          <AppNavigator />
-        </AuthProvider>
+        <AppBootstrap>
+          <AuthProvider>
+            <AppNavigator />
+          </AuthProvider>
+        </AppBootstrap>
       </View>
     </SafeAreaProvider>
   );
